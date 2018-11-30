@@ -14,8 +14,8 @@ const result = (textContent, color='black') => {
 document.getElementById('btn').addEventListener('click', () => {
   table.textContent = '';
   let num = input.value;
-  if (num <= 0 ) { return result('Number must be valid and greater than 0', 'red'); }
-
+  let regex = /[A-Za-z\.]/; // check if input contain alphabeth or a dot
+  if (num <= 0  || regex.test(num)) { return result('Number field is empty or invalid', 'red'); }
   result(`Result for Pascal's Triangle of ${num}`)
   let pre = [1];
   result(pre) //outer 1
@@ -25,7 +25,7 @@ document.getElementById('btn').addEventListener('click', () => {
 
     current.push(1) //first
     for (let j = 0; j < pre.length - 1; j++) {
-      current.push(pre[j] + pre[j + 1]); //middle'
+      current.push(pre[j] + pre[j + 1]); // middle'
     }
     current.push(1); //last
     result(current);
