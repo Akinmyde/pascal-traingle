@@ -14,9 +14,9 @@ const result = (textContent, color='black') => {
 document.getElementById('btn').addEventListener('click', () => {
   table.textContent = '';
   let num = input.value;
-  if (num <= 0 ) {return result('Number must be valid and greater than 0', 'red')}
+  if (num <= 0 ) { return result('Number must be valid and greater than 0', 'red'); }
 
-  result(`Result of Pascal's Triangle of ${num}`)
+  result(`Result for Pascal's Triangle of ${num}`)
   let pre = [1];
   result(pre) //outer 1
 
@@ -36,6 +36,4 @@ document.getElementById('btn').addEventListener('click', () => {
 // clear input field
 input.addEventListener('click', () => {
   return input.value = '';
-})
-
-
+});
