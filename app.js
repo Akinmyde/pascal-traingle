@@ -1,7 +1,7 @@
-let input = document.getElementById('input');
-let table = document.getElementById('table');
+const input = document.getElementById('input');
+const table = document.getElementById('table');
 
-function createNode(textContent, color='black') {
+const result = (textContent, color='black') => {
   let tr = document.createElement('tr')
   let td = document.createElement('td');
   let content = document.createTextNode(textContent);
@@ -11,14 +11,14 @@ function createNode(textContent, color='black') {
   table.style.color = color; 
 }
 
-document.getElementById('btn').addEventListener('click', function() {
+document.getElementById('btn').addEventListener('click', () => {
   table.textContent = '';
   let num = input.value;
-  if (num <= 0 || num === '') {return createNode('Number must be greater than 0', 'red')}
+  if (num <= 0 ) {return result('Number must be valid and greater than 0', 'red')}
 
-  createNode(`Pascal's Triangle of ${num}`)
+  result(`Result of Pascal's Triangle of ${num}`)
   let pre = [1];
-  createNode(pre) //outer 1
+  result(pre) //outer 1
 
   for (let i = 2; i <= num; i++) {
     let current = [];
@@ -28,13 +28,13 @@ document.getElementById('btn').addEventListener('click', function() {
       current.push(pre[j] + pre[j + 1]); //middle'
     }
     current.push(1); //last
-    createNode(current);
+    result(current);
     pre = current;
   }
 });
 
 // clear input field
-input.addEventListener('click', function() {
+input.addEventListener('click', () => {
   return input.value = '';
 })
 
