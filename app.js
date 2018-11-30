@@ -16,6 +16,7 @@ document.getElementById('btn').addEventListener('click', function() {
   let num = input.value;
   if (num <= 0 || num === '') {return createNode('Number must be greater than 0', 'red')}
 
+  createNode(`Pascal's Triangle of ${num}`)
   let pre = [1];
   createNode(pre) //outer 1
 
@@ -24,7 +25,7 @@ document.getElementById('btn').addEventListener('click', function() {
 
     current.push(1) //first
     for (let j = 0; j < pre.length - 1; j++) {
-      current.push(pre[j] + pre[j + 1]); //middle
+      current.push(pre[j] + pre[j + 1]); //middle'
     }
     current.push(1); //last
     createNode(current);
