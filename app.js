@@ -1,5 +1,6 @@
 const input = document.getElementById('input');
 const table = document.getElementById('table');
+const error = document.getElementById('error');
 
 const result = (textContent, color='black') => {
   let tr = document.createElement('tr')
@@ -13,9 +14,11 @@ const result = (textContent, color='black') => {
 
 document.getElementById('btn').addEventListener('click', () => {
   table.textContent = '';
+  error.textContent = '';
   let num = input.value;
   let regex = /[A-Za-z\.]/; // check if input contain alphabeth or a dot
-  if (num <= 0  || regex.test(num)) { return result('Number field is empty or invalid', 'red'); }
+  if (num <= 0  || regex.test(num)) {return error.textContent = 'Number field is empty or invalid'}
+
   result(`Result for Pascal's Triangle of ${num}`)
   let pre = [1];
   result(pre) //outer 1

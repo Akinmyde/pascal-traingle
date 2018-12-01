@@ -61,8 +61,16 @@ button:hover {
     overflow: auto;
 }
 
+.result {
+    overflow: auto;
+}
+
 .center {
     text-align: center;
+}
+
+.error {
+    color: red;
 }
 
 
